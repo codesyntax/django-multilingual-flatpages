@@ -30,9 +30,9 @@ class FlatpageForm(TranslatableModelForm):
                 ugettext("URL is missing a leading slash."),
                 code='missing_leading_slash',
             )
-        if (settings.APPEND_SLASH and (
-                ('django.middleware.common.CommonMiddleware' in settings.MIDDLEWARE_CLASSES) and
-                not url.endswith('/')):
+        if settings.APPEND_SLASH and
+                'django.middleware.common.CommonMiddleware' in settings.MIDDLEWARE_CLASSES and
+                not url.endswith('/'):
             raise forms.ValidationError(
                 ugettext("URL is missing a trailing slash."),
                 code='missing_trailing_slash',
