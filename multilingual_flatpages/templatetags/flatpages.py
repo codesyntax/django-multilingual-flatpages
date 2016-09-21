@@ -49,6 +49,7 @@ def get_flatpage_url(name):
     page = FlatPage.objects.language(get_language()).get(name=name)
     return reverse('multilingual_flatpages', kwargs={'slug': page.slug})
 
+
 @register.tag
 def get_flatpages(parser, token):
     """
