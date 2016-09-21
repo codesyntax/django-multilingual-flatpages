@@ -3,7 +3,6 @@ from multilingual_flatpages.models import FlatPage
 from django.contrib.sites.shortcuts import get_current_site
 from django.utils.translation import get_language
 from django.http import Http404, HttpResponse, HttpResponsePermanentRedirect
-from django.shortcuts import get_object_or_404
 from django.template import loader
 from django.utils.safestring import mark_safe
 from django.views.decorators.csrf import csrf_protect
@@ -35,14 +34,14 @@ def flatpage(request, url):
         url = '/' + url
     site_id = get_current_site(request).id
     try:
-        f = get_object_or_404(FlatPage.objects.language(get_language()), url=url, sites=site_id)
-    except Http404:
+        f = FlatPage.objects.language(get_language()).get(url=url, sites=site_id)
+    except:
         if not url.endswith('/') and settings.APPEND_SLASH:
             url += '/'
-            f = get_object_or_404(FlatPage.objects.language(get_language()), url=url, sites=site_id)
+            f = FlatPage.objects.language(get_language()).get(url=url, sites=site_id)
             return HttpResponsePermanentRedirect('%s/' % request.path)
         else:
-            raise
+            raise Http404
     return render_flatpage(request, f)
 
 
