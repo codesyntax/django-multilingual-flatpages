@@ -1,10 +1,11 @@
 from django import forms
 from django.conf import settings
 from multilingual_flatpages.models import FlatPage
+from hvad.forms import TranslatableModelForm
 from django.utils.translation import ugettext, ugettext_lazy as _
 
 
-class FlatpageForm(forms.ModelForm):
+class FlatpageForm(TranslatableModelForm):
     url = forms.RegexField(
         label=_("URL"),
         max_length=100,
