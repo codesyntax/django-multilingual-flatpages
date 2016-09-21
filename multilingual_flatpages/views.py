@@ -6,7 +6,10 @@ from django.http import Http404, HttpResponse, HttpResponsePermanentRedirect
 from django.template import loader
 from django.utils.safestring import mark_safe
 from django.views.decorators.csrf import csrf_protect
-from django.utils.translation import LANGUAGE_SESSION_KEY
+from django.utils.translation import (
+    LANGUAGE_SESSION_KEY,
+    activate
+)
 from django.http import HttpResponseRedirect
 
 DEFAULT_TEMPLATE = 'flatpages/default.html'
@@ -82,4 +85,5 @@ def change_language(request, lang):
         request.session[LANGUAGE_SESSION_KEY] = lang
     else:
         response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang)
+    activate(lang)
     return response
