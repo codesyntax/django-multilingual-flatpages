@@ -1,5 +1,5 @@
 from django.conf import settings
-from django.contrib.flatpages.models import FlatPage
+from multilingual_flatpages.models import FlatPage
 from django.contrib.sites.shortcuts import get_current_site
 from django.http import Http404, HttpResponse, HttpResponsePermanentRedirect
 from django.shortcuts import get_object_or_404

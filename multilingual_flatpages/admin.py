@@ -1,6 +1,6 @@
 from django.contrib import admin
-from django.contrib.flatpages.forms import FlatpageForm
-from django.contrib.flatpages.models import FlatPage
+from multilingual_flatpages.forms import FlatpageForm
+from multilingual_flatpages.models import FlatPage
 from django.utils.translation import ugettext_lazy as _
 from hvad.admin import TranslatableAdmin
 
