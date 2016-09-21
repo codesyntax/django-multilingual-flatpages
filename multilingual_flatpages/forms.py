@@ -43,7 +43,7 @@ class FlatpageForm(TranslatableModelForm):
         url = self.cleaned_data.get('url')
         sites = self.cleaned_data.get('sites')
 
-        same_url = FlatPage.objects.filter(url=url)
+        same_url = FlatPage.objects.language().filter(url=url)
         if self.instance.pk:
             same_url = same_url.exclude(pk=self.instance.pk)
 
