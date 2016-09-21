@@ -5,7 +5,6 @@ from django.utils.translation import ugettext_lazy as _
 from hvad.admin import TranslatableAdmin
 
 
-@admin.unregister(FlatPage)
 @admin.register(FlatPage)
 class MultiFlatPageAdmin(TranslatableAdmin):
 
