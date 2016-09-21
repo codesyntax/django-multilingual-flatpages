@@ -34,8 +34,8 @@ class FlatPage(TranslatableModel):
     sites = models.ManyToManyField(Site, verbose_name=_('sites'))
 
     class Meta:
-        verbose_name = _('Multilingual flat page')
-        verbose_name_plural = _('Multilingual flat pages')
+        verbose_name = _('flat page')
+        verbose_name_plural = _('flat pages')
         ordering = ('url',)
 
     def __str__(self):
