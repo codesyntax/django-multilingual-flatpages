@@ -6,7 +6,7 @@ from hvad.admin import TranslatableAdmin
 
 
 @admin.register(FlatPage)
-class FlatPageAdmin(TranslatableAdmin):
+class MultiFlatPageAdmin(TranslatableAdmin):
 
     def get_title(self, obj):
         return obj.safe_translation_getter('title')
