@@ -38,7 +38,10 @@ def flatpage(request, url):
     except:
         if not url.endswith('/') and settings.APPEND_SLASH:
             url += '/'
-            f = FlatPage.objects.language(get_language()).get(url=url, sites=site_id)
+            try:
+                f = FlatPage.objects.language(get_language()).get(url=url, sites=site_id)
+            except:
+                raise Http404
             return HttpResponsePermanentRedirect('%s/' % request.path)
         else:
             raise Http404
