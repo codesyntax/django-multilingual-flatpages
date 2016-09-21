@@ -1,5 +1,7 @@
 from django import template
 from django.conf import settings
+from django.core.urlresolvers import reverse
+from django.utils.translation import get_language
 from multilingual_flatpages.models import FlatPage
 from django.contrib.sites.shortcuts import get_current_site
 
@@ -41,6 +43,11 @@ class FlatpageNode(template.Node):
         context[self.context_name] = flatpages
         return ''
 
+
+@register.tag
+def get_flatpage_url(name):
+    page = FlatPage.objects.language(get_language()).get(name=name)
+    return reverse('multilingual_flatpages', kwargs={'slug': page.slug})
 
 @register.tag
 def get_flatpages(parser, token):
