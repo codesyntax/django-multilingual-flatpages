@@ -5,8 +5,8 @@ A flatpage is a simple object with a URL, title and content. Use it for one-off,
 A flatpage can use a custom template or a default, systemwide flatpage template. It can be associated with one, or multiple, sites.
 
 
-Installation
-============
+## Installation
+
 
 To install the multilingual flatpages app, follow these steps:
 
@@ -27,8 +27,7 @@ urlpatterns = [
 5. Run the command **manage.py migrate**.
 
 
-Getting a URL of FlatPage object in your templates
-==================================================
+## Getting a URL of FlatPage object in your templates
 
 The flatpages app provides a template tag that allows you to get the absolute url depending on your current language.
 
