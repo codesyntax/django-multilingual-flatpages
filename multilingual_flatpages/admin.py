@@ -18,13 +18,13 @@ class MultiFlatPageAdmin(TranslatableAdmin):
 
     form = FlatpageForm
     use_fieldsets = (
-        (None, {'fields': ('url', 'title', 'content', 'sites')}),
+        (None, {'fields': ('name', 'url', 'title', 'content', 'sites')}),
         (_('Advanced options'), {
             'classes': ('collapse',),
             'fields': ('registration_required', 'template_name'),
         }),
     )
-    list_display = ('get_url', 'get_title')
+    list_display = ('name', 'get_url', 'get_title')
     list_filter = ('sites', 'registration_required')
     # search_fields = ('url', 'title')
 
