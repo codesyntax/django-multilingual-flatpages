@@ -24,4 +24,18 @@ urlpatterns = [
 ]
 ```
 
-5. Run the command manage.py migrate.
+5. Run the command **manage.py migrate**.
+
+
+Getting a URL of FlatPage object in your templates
+==================================================
+
+The flatpages app provides a template tag that allows you to get the absolute url depending on your current language.
+
+Like all custom template tags, you’ll need to load its custom tag library before you can use it. After loading the library, you can retrieve all current flatpages URL via the get_flatpage_url tag:
+
+```python
+{% load flatpages %}
+
+{% get_flatpage_url 'flatpage-name' %}
+```
