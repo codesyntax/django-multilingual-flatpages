@@ -6,6 +6,8 @@ from django.http import Http404, HttpResponse, HttpResponsePermanentRedirect
 from django.template import loader
 from django.utils.safestring import mark_safe
 from django.views.decorators.csrf import csrf_protect
+from django.utils.translation import LANGUAGE_SESSION_KEY
+from django.http import HttpResponseRedirect
 
 DEFAULT_TEMPLATE = 'flatpages/default.html'
 
@@ -70,4 +72,14 @@ def render_flatpage(request, f):
     f.content = mark_safe(f.content)
 
     response = HttpResponse(template.render({'flatpage': f}, request))
+    return response
+
+
+def change_language(request, lang):
+    redirect_to = request.META.get('HTTP_REFERER', '/')
+    response = HttpResponseRedirect(redirect_to)
+    if hasattr(request, 'session'):
+        request.session[LANGUAGE_SESSION_KEY] = lang
+    else:
+        response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang)
     return response
