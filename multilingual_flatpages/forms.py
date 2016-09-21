@@ -32,7 +32,7 @@ class FlatpageForm(TranslatableModelForm):
             )
         if (settings.APPEND_SLASH and (
                 'django.middleware.common.CommonMiddleware' in settings.MIDDLEWARE_CLASSES) and
-                not url.endswith('/'):
+                not url.endswith('/')):
             raise forms.ValidationError(
                 ugettext("URL is missing a trailing slash."),
                 code='missing_trailing_slash',
