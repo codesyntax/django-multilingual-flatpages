@@ -1,1 +1,1 @@
-default_app_config = 'django.contrib.flatpages.apps.FlatPagesConfig'
+default_app_config = 'multilingual_flatpages.apps.FlatPagesConfig'
