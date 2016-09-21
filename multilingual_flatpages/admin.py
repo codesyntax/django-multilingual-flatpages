@@ -24,7 +24,7 @@ class MultiFlatPageAdmin(TranslatableAdmin):
             'fields': ('registration_required', 'template_name'),
         }),
     )
-    list_display = ('get_url', 'get_title', 'all_translations')
+    list_display = ('get_url', 'get_title')
     list_filter = ('sites', 'registration_required')
     # search_fields = ('url', 'title')
 
