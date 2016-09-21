@@ -44,7 +44,7 @@ class FlatpageNode(template.Node):
         return ''
 
 
-@register.tag
+@register.simple_tag
 def get_flatpage_url(name):
     page = FlatPage.objects.language(get_language()).get(name=name)
     return reverse('multilingual_flatpages', kwargs={'slug': page.slug})
