@@ -12,7 +12,7 @@ from django.utils.translation import (
 )
 from django.http import HttpResponseRedirect
 
-DEFAULT_TEMPLATE = 'flatpages/default.html'
+DEFAULT_TEMPLATE = 'multilingual_flatpages/default.html'
 
 # This view is called from FlatpageFallbackMiddleware.process_response
 # when a 404 is raised, which often means CsrfViewMiddleware.process_view
@@ -24,7 +24,7 @@ DEFAULT_TEMPLATE = 'flatpages/default.html'
 # CSRF protect the internal implementation.
 
 
-def flatpage(request, url):
+def flatpage(request, flatpage_slug):
     """
     Public interface to the flat page view.
 
@@ -35,16 +35,16 @@ def flatpage(request, url):
         flatpage
             `flatpages.flatpages` object
     """
-    if not url.startswith('/'):
-        url = '/' + url
+    if not flatpage_slug.startswith('/'):
+        flatpage_slug = '/' + flatpage_slug
     site_id = get_current_site(request).id
     try:
-        f = FlatPage.objects.language(get_language()).get(url=url, sites=site_id)
+        f = FlatPage.objects.language(get_language()).get(slug=flatpage_slug, sites=site_id)
     except:
-        if not url.endswith('/') and settings.APPEND_SLASH:
-            url += '/'
+        if not flatpage_slug.endswith('/') and settings.APPEND_SLASH:
+            flatpage_slug += '/'
             try:
-                f = FlatPage.objects.language(get_language()).get(url=url, sites=site_id)
+                f = FlatPage.objects.language(get_language()).get(slug=flatpage_slug, sites=site_id)
             except:
                 raise Http404
             return HttpResponsePermanentRedirect('%s/' % request.path)
@@ -74,16 +74,5 @@ def render_flatpage(request, f):
     f.title = mark_safe(f.title)
     f.content = mark_safe(f.content)
 
-    response = HttpResponse(template.render({'flatpage': f}, request))
-    return response
-
-
-def change_language(request, lang):
-    redirect_to = request.META.get('HTTP_REFERER', '/')
-    response = HttpResponseRedirect(redirect_to)
-    if hasattr(request, 'session'):
-        request.session[LANGUAGE_SESSION_KEY] = lang
-    else:
-        response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang)
-    activate(lang)
+    response = HttpResponse(template.render({'obj': f}, request))
     return response

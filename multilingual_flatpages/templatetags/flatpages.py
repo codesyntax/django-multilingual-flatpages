@@ -45,8 +45,11 @@ class FlatpageNode(template.Node):
 
 @register.simple_tag
 def get_flatpage_url(name):
-    page = FlatPage.objects.language(get_language()).get(name=name)
-    return page.get_absolute_url()
+    try:
+        page = FlatPage.objects.language(get_language()).get(name=name)
+        return page.get_absolute_url()
+    except:
+        return ""
 
 
 @register.tag

@@ -3,11 +3,12 @@ from django.conf import settings
 from multilingual_flatpages.models import FlatPage
 from hvad.forms import TranslatableModelForm
 from django.utils.translation import ugettext, ugettext_lazy as _
+from tinymce.widgets import TinyMCE
 
 
 class FlatpageForm(TranslatableModelForm):
-    url = forms.RegexField(
-        label=_("URL"),
+    slug = forms.RegexField(
+        label=_("slug"),
         max_length=100,
         regex=r'^[-\w/\.~]+$',
         help_text=_("Example: '/about/contact/'. Make sure to have leading and trailing slashes."),
@@ -18,32 +19,33 @@ class FlatpageForm(TranslatableModelForm):
             ),
         },
     )
+    content = forms.CharField(widget=TinyMCE(attrs={'cols': 80, 'rows': 30}, mce_attrs=settings.TINYMCE_DEFAULT_CONFIG))
 
     class Meta:
         model = FlatPage
         # fields = '__all__'
 
     def clean_url(self):
-        url = self.cleaned_data['url']
-        if not url.startswith('/'):
+        slug = self.cleaned_data['slug']
+        if not slug.startswith('/'):
             raise forms.ValidationError(
                 ugettext("URL is missing a leading slash."),
                 code='missing_leading_slash',
             )
         if (settings.APPEND_SLASH and (
                 'django.middleware.common.CommonMiddleware' in settings.MIDDLEWARE_CLASSES) and
-                not url.endswith('/')):
+                not slug.endswith('/')):
             raise forms.ValidationError(
                 ugettext("URL is missing a trailing slash."),
                 code='missing_trailing_slash',
             )
-        return url
+        return slug
 
     def clean(self):
-        url = self.cleaned_data.get('url')
+        slug = self.cleaned_data.get('slug')
         sites = self.cleaned_data.get('sites')
 
-        same_url = FlatPage.objects.language().filter(url=url)
+        same_url = FlatPage.objects.language().filter(slug=slug)
         if self.instance.pk:
             same_url = same_url.exclude(pk=self.instance.pk)
 
@@ -53,7 +55,7 @@ class FlatpageForm(TranslatableModelForm):
                     raise forms.ValidationError(
                         _('Flatpage with url %(url)s already exists for site %(site)s'),
                         code='duplicate_url',
-                        params={'url': url, 'site': site},
+                        params={'slug': slug, 'site': site},
                     )
 
         return super(FlatpageForm, self).clean()

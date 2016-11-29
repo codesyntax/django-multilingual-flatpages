@@ -12,19 +12,19 @@ class MultiFlatPageAdmin(TranslatableAdmin):
         return obj.safe_translation_getter('title')
     get_title.short_description = _('Title')
 
-    def get_url(self, obj):
-        return obj.safe_translation_getter('url')
-    get_url.short_description = _('url')
+    def get_slug(self, obj):
+        return obj.safe_translation_getter('slug')
+    get_slug.short_description = _('slug')
 
     form = FlatpageForm
     use_fieldsets = (
-        (None, {'fields': ('name', 'url', 'title', 'content', 'sites')}),
+        (None, {'fields': ('name', 'slug', 'title', 'content', 'sites')}),
         (_('Advanced options'), {
             'classes': ('collapse',),
             'fields': ('registration_required', 'template_name'),
         }),
     )
-    list_display = ('name', 'get_url', 'get_title')
+    list_display = ('name', 'get_slug', 'get_title', 'all_translations')
     list_filter = ('sites', 'registration_required')
     # search_fields = ('url', 'title')
 

@@ -1,0 +1,25 @@
+Metadata-Version: 1.1
+Name: django-multilingual-flatpages
+Version: 1.0
+Summary: A flatpage is a simple object with a URL, title and content. Use it for one-off, special-case pages, such as “About” or “Privacy Policy” pages, that you want to store in a database but for which you don’t want to develop a custom Django application.
+    A flatpage can use a custom template or a default, systemwide flatpage template. It can be associated with one, or multiple, sites.
+Home-page: https://github.com/codesyntax/django-multilingual-flatpages
+Author: Urtzi Odriozola (Code Syntax http://codesyntax.com)
+Author-email: uodriozola@codesyntax.com
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Utilities
