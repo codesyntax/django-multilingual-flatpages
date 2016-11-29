@@ -15,7 +15,7 @@ def get_requirements(source):
     required = set([str(ir.req) for ir in install_reqs])
     return required
 
-version = '0.4.dev0'
+version = '0.4'
 
 setup(name='multilingual_flatpages',
       version=version,
@@ -28,5 +28,8 @@ setup(name='multilingual_flatpages',
       packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
       include_package_data=True,
       zip_safe=False,
-      install_requires=get_requirements('requirements.txt'),
+      install_requires=[
+          'Django >= 1.9',
+          'django-hvad >= 1.6.0',
+      ],
 )
