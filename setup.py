@@ -15,7 +15,7 @@ def get_requirements(source):
     required = set([str(ir.req) for ir in install_reqs])
     return required
 
-version = '0.2.dev0'
+version = '0.1.dev0'
 
 setup(name='django_multilingual_flatpages',
       version=version,
