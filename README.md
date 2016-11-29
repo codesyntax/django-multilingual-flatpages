@@ -4,6 +4,8 @@ A flatpage is a simple object with a URL, title and content. Use it for one-off,
 
 A flatpage can use a custom template or a default, systemwide flatpage template. It can be associated with one, or multiple, sites.
 
+This version is a fork of django.contrib.flatpages package made it multilingual.
+
 
 ## Installation
 

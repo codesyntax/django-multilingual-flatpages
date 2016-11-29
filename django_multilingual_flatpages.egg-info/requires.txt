@@ -1,2 +1,0 @@
-django-hvad>=1.6.0
-Django>=1.9
