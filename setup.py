@@ -20,6 +20,8 @@ version = '0.5.dev0'
 setup(name='multilingual_flatpages',
       version=version,
       description="""A flatpage is a simple object with a URL, title and content. Use it for one-off, special-case pages, such as “About” or “Privacy Policy” pages, that you want to store in a database but for which you don’t want to develop a custom Django application. A flatpage can use a custom template or a default, systemwide flatpage template. It can be associated with one, or multiple, sites. This version is a fork of django.contrib.flatpages package made it multilingual.""",
+      long_description=open("README.md").read() + "\n" +
+                       open("CHANGELOG.txt").read(),
       classifiers=[],
       keywords='',
       author="Urtzi Odriozola (Code Syntax http://codesyntax.com)",

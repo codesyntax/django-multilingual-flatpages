@@ -9,8 +9,16 @@ This version is a fork of django.contrib.flatpages package made it multilingual.
 
 ## Installation
 
+You will need to uninstall flatpages, and remove all traces of it from the **INSTALLED_APPS**
+and **MIDDLEWARES** settings.
 
 To install the multilingual flatpages app, follow these steps:
+
+0. Install this package:
+
+    ```
+    $ pip install multilingual_flatpages
+    ```
 
 1. Install the sites framework by adding 'django.contrib.sites' to your **INSTALLED_APPS** setting, if it’s not already in there.
 
@@ -21,8 +29,10 @@ To install the multilingual flatpages app, follow these steps:
 4. Add an entry in your URLconf. For example:
 
 ```python
+from multilingual_flatpages import views as multilingual_flatpages_views
+...
 urlpatterns = [
-    url(r'^(?P<url>.*)$', views.flatpage, name='multilingual_flatpages'),
+    url(r'^(?P<url>.*)$', multilingual_flatpages_views.flatpage, name='multilingual_flatpages'),
 ]
 ```
 
