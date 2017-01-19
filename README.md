@@ -29,8 +29,10 @@ To install the multilingual flatpages app, follow these steps:
 4. Add an entry in your URLconf. For example:
 
 ```python
+from multilingual_flatpages import views as multilingual_flatpages_views
+...
 urlpatterns = [
-    url(r'^(?P<url>.*)$', views.flatpage, name='multilingual_flatpages'),
+    url(r'^(?P<url>.*)$', multilingual_flatpages_views.flatpage, name='multilingual_flatpages'),
 ]
 ```
 
