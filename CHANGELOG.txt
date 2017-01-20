@@ -4,7 +4,10 @@ All notable changes to this project will be documented in this file.
 0.6 (unreleased)
 aaaaaaaaaaaaaaaa
 
-- Nothing changed yet.
+- fix manifest [Mikel Larreategi <mlarreategi@codesyntax.com>]
+
+- delete MO files from git [Mikel Larreategi <mlarreategi@codesyntax.com>]
+
 
 
 0.5 (2017-01-20)
