@@ -1,0 +1,5 @@
+include *.md
+include *.txt
+recursive-include multilingual_flatpages *.html
+recursive-include multilingual_flatpages *.po
+
