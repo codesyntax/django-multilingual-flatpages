@@ -14,21 +14,23 @@ and **MIDDLEWARES** settings.
 
 To install the multilingual flatpages app, follow these steps:
 
-0. Install this package:
+1. Install this package:
 
     ```
     $ pip install multilingual_flatpages
     ```
 
-1. Install the sites framework by adding 'django.contrib.sites' to your **INSTALLED_APPS** setting, if it’s not already in there.
+2. Install the sites framework by adding 'django.contrib.sites' to your **INSTALLED_APPS** setting, if it’s not already in there.
 
-2. Also make sure you’ve correctly set **SITE_ID** to the ID of the site the settings file represents. This will usually be **1** (i.e. **SITE_ID = 1**, but if you’re using the sites framework to manage multiple sites, it could be the ID of a different site.
+3. Also make sure you’ve correctly set **SITE_ID** to the ID of the site the settings file represents. This will usually be **1** (i.e. **SITE_ID = 1**, but if you’re using the sites framework to manage multiple sites, it could be the ID of a different site.
 
-3. Add **'multilingual_flatpages'** and **'hvad'** to your **INSTALLED_APPS** setting.
+4. Add **'multilingual_flatpages'** and **'hvad'** to your **INSTALLED_APPS** setting.
 
-4. Add an entry in your URLconf. For example:
+5. Add **multilingual_flatpages.middleware.FlatpageFallbackMiddleware'** in your **MIDDLEWARES** list.
 
-```python
+6. Add an entry in your URLconf. For example:
+
+ ```python
 from multilingual_flatpages import views as multilingual_flatpages_views
 ...
 urlpatterns = [
@@ -36,7 +38,7 @@ urlpatterns = [
 ]
 ```
 
-5. Run the command **manage.py migrate**.
+7. Run the command **manage.py migrate**.
 
 
 ## Getting a URL of FlatPage object in your templates
