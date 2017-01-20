@@ -34,7 +34,7 @@ To install the multilingual flatpages app, follow these steps:
 from multilingual_flatpages import views as multilingual_flatpages_views
 ...
 urlpatterns = [
-    url(r'^(?P<url>.*)$', multilingual_flatpages_views.flatpage, name='multilingual_flatpages'),
+    url(r'^(?P<flatpage_slug>.*)$', multilingual_flatpages_views.flatpage, name='multilingual_flatpages'),
 ]
 ```
 
