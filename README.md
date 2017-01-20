@@ -52,3 +52,16 @@ Like all custom template tags, you’ll need to load its custom tag library befo
 
 {% get_flatpage_url 'flatpage-name' %}
 ```
+
+You can also use the *get_flatpages* template tag to get all the FlatPages:
+
+```html
+{% load flatpages %}
+
+{% get_flatpages as flatpages %}
+<ul>
+    {% for page in flatpages %}
+        <li><a href="{{ page.get_absolute_url }}">{{ page.title }}</a></li>
+    {% endfor %}
+</ul>
+```
