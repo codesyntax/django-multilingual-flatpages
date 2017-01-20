@@ -1,6 +1,6 @@
 from django import template
-from django.conf import settings
 from django.utils.translation import get_language
+from django.conf import settings
 from multilingual_flatpages.models import FlatPage
 from django.contrib.sites.shortcuts import get_current_site
 
@@ -24,11 +24,12 @@ class FlatpageNode(template.Node):
             site_pk = get_current_site(context['request']).pk
         else:
             site_pk = settings.SITE_ID
-        flatpages = FlatPage.objects.filter(sites__id=site_pk)
+        language = get_language()
+        flatpages = FlatPage.objects.language(language).filter(sites__id=site_pk)
         # If a prefix was specified, add a filter
         if self.starts_with:
             flatpages = flatpages.filter(
-                url__startswith=self.starts_with.resolve(context))
+                slug__startswith=self.starts_with.resolve(context))
 
         # If the provided user is not authenticated, or no user
         # was provided, filter the list to only public flatpages.
@@ -70,7 +71,7 @@ def get_flatpages(parser, token):
 
     Syntax::
 
-        {% get_flatpages ['url_starts_with'] [for user] as context_name %}
+        {% get_flatpages ['slug_starts_with'] [for user] as context_name %}
 
     Example usage::
 
@@ -82,7 +83,7 @@ def get_flatpages(parser, token):
     """
     bits = token.split_contents()
     syntax_message = ("%(tag_name)s expects a syntax of %(tag_name)s "
-                      "['url_starts_with'] [for user] as context_name" %
+                      "['slug_starts_with'] [for user] as context_name" %
                       dict(tag_name=bits[0]))
     # Must have at 3-6 bits in the tag
     if len(bits) >= 3 and len(bits) <= 6:
@@ -105,7 +106,6 @@ def get_flatpages(parser, token):
             user = bits[-3]
         else:
             user = None
-
         return FlatpageNode(context_name, starts_with=prefix, user=user)
     else:
         raise template.TemplateSyntaxError(syntax_message)
