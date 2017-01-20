@@ -4,7 +4,42 @@ All notable changes to this project will be documented in this file.
 0.5 (unreleased)
 aaaaaaaaaaaaaaaa
 
-- Nothing changed yet.
+- Update the item in urls.py [Mikel Larreategi <mlarreategi@codesyntax.com>]
+
+- Merge pull request #3 from codesyntax/fixes [Urtzi Odriozola <uodriozola@codesyntax.com>]
+
+-  [Urtzi Odriozola <uodriozola@codesyntax.com>]
+
+- Fixes: get_flatpages templatetag, middleware, default template [Urtzi Odriozola <uodriozola@codesyntax.com>]
+
+- provide a default template for multilingual flatpages [Mikel Larreategi <mlarreategi@codesyntax.com>]
+
+- document how to use the get_flatpages templatetag [Mikel Larreategi <mlarreategi@codesyntax.com>]
+
+- fix the get_flatpages templatetag [Mikel Larreategi <mlarreategi@codesyntax.com>]
+
+- document how to enable the Fallback middleware [Mikel Larreategi <mlarreategi@codesyntax.com>]
+
+- Merge pull request #2 from codesyntax/hvad [Urtzi Odriozola <uodriozola@codesyntax.com>]
+
+-  [Urtzi Odriozola <uodriozola@codesyntax.com>]
+
+- add hvad installation to README [Urtzi Odriozola <uodriozola@codesyntax.com>]
+
+- add hvad installation to README [Mikel Larreategi <mlarreategi@codesyntax.com>]
+
+- Merge pull request #1 from codesyntax/docs [Urtzi Odriozola <uodriozola@codesyntax.com>]
+
+-  [Urtzi Odriozola <uodriozola@codesyntax.com>]
+
+- Docs improved [Urtzi Odriozola <uodriozola@codesyntax.com>]
+
+- document how to import the view [Mikel Larreategi <mlarreategi@codesyntax.com>]
+
+- improve readme [Mikel Larreategi <mlarreategi@codesyntax.com>]
+
+- add README and CHANGELOG as long_description to show on PYPI [Mikel Larreategi <mlarreategi@codesyntax.com>]
+
 
 
 0.4 (2016-11-29)

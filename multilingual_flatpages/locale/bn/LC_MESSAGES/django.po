@@ -7,30 +7,43 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-09 17:42+0200\n"
+"POT-Creation-Date: 2016-12-02 12:40+0100\n"
 "PO-Revision-Date: 2015-10-10 09:11+0000\n"
 "Last-Translator: Jannis Leidel <jannis@leidel.info>\n"
 "Language-Team: Bengali (http://www.transifex.com/django/django/language/"
 "bn/)\n"
+"Language: bn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: bn\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: admin.py:13
+#, fuzzy
+#| msgid "title"
+msgid "Title"
+msgstr "শিরোনাম"
+
+#: admin.py:17 forms.py:11 models.py:16
+msgid "slug"
+msgstr ""
+
+#: admin.py:22
 msgid "Advanced options"
 msgstr "এডভান্সড অপশন"
 
-msgid "Flat Pages"
+#: apps.py:7
+#, fuzzy
+#| msgid "Flat Pages"
+msgid "Multilingual Flat Pages"
 msgstr "ফ্ল্যাট পেজ"
 
-msgid "URL"
-msgstr "ইউআরএল (URL)"
-
+#: forms.py:14
 msgid ""
 "Example: '/about/contact/'. Make sure to have leading and trailing slashes."
 msgstr "উদাহরণঃ '/about/contact/'। শুরু এবং শেষের স্ল্যাশগুলো আবশ্যক।"
 
+#: forms.py:17
 msgid ""
 "This value must contain only letters, numbers, dots, underscores, dashes, "
 "slashes or tildes."
@@ -38,46 +51,70 @@ msgstr ""
 "এই মানটিতে শুধুমাত্র বর্ণ, অঙ্ক, পিরিয়ড, আন্ডারস্কোর, ড্যাশ,  স্ল্যাশ অথবা টিল্ড "
 "ক্যারেক্টার থাকতে পারবে।"
 
+#: forms.py:32
 msgid "URL is missing a leading slash."
 msgstr "ইউআরএল টির শুরুর স্ল্যাশ চিহ্নটি দেওয়া হয় নি।"
 
+#: forms.py:39
 msgid "URL is missing a trailing slash."
 msgstr "ইউআরএল টির শেষের স্ল্যাশ চিহ্নটি দেওয়া হয় নি।"
 
+#: forms.py:56
 #, python-format
 msgid "Flatpage with url %(url)s already exists for site %(site)s"
 msgstr "%(site)s সাইটের জন্য %(url)s ইউআরএল এর ফ্ল্যাটপেজ আগেই তৈরী করা হয়েছ।"
 
+#: models.py:14
+msgid "Name"
+msgstr ""
+
+#: models.py:17
 msgid "title"
 msgstr "শিরোনাম"
 
+#: models.py:18
 msgid "content"
 msgstr "কনটেন্ট"
 
+#: models.py:20
 msgid "enable comments"
 msgstr "মন্তব্য প্রদান সচল করুন"
 
+#: models.py:22
 msgid "template name"
 msgstr "টেমপ্লেট নাম"
 
+#: models.py:26
+#, fuzzy
+#| msgid ""
+#| "Example: 'flatpages/contact_page.html'. If this isn't provided, the "
+#| "system will use 'flatpages/default.html'."
 msgid ""
-"Example: 'flatpages/contact_page.html'. If this isn't provided, the system "
-"will use 'flatpages/default.html'."
+"Example: 'multilingual_flatpages/contact_page.html'. If this isn't provided, "
+"the system will use 'multilingual_flatpages/default.html'."
 msgstr ""
 "উদাহরণঃ ’flatpage/contact_page.html'। এটি যদি খালি থাকে, তবে সিস্টেম "
 "’flatpage/default.html' ব্যবহার করবে।"
 
+#: models.py:31
 msgid "registration required"
 msgstr "নিবন্ধন আবশ্যক"
 
+#: models.py:32
 msgid "If this is checked, only logged-in users will be able to view the page."
 msgstr "এটি চেক করা হলে, শুধুমাত্র লগইন করা সদস্যরা পাতাটি দেখতে সমর্থ হবেন।"
 
+#: models.py:35
 msgid "sites"
 msgstr ""
 
+#: models.py:39
 msgid "flat page"
 msgstr "ফ্লাট পাতা"
 
+#: models.py:40
 msgid "flat pages"
 msgstr "ফ্লাট পাতা সমূহ"
+
+#~ msgid "URL"
+#~ msgstr "ইউআরএল (URL)"

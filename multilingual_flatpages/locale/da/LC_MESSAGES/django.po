@@ -9,31 +9,44 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-09 17:42+0200\n"
+"POT-Creation-Date: 2016-12-02 12:40+0100\n"
 "PO-Revision-Date: 2015-12-01 20:05+0000\n"
 "Last-Translator: Erik Wognsen <r4mses@gmail.com>\n"
 "Language-Team: Danish (http://www.transifex.com/django/django/language/da/)\n"
+"Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: da\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: admin.py:13
+#, fuzzy
+#| msgid "title"
+msgid "Title"
+msgstr "titel"
+
+#: admin.py:17 forms.py:11 models.py:16
+msgid "slug"
+msgstr ""
+
+#: admin.py:22
 msgid "Advanced options"
 msgstr "Avancerede muligheder"
 
-msgid "Flat Pages"
+#: apps.py:7
+#, fuzzy
+#| msgid "Flat Pages"
+msgid "Multilingual Flat Pages"
 msgstr "Flade sider"
 
-msgid "URL"
-msgstr "URL"
-
+#: forms.py:14
 msgid ""
 "Example: '/about/contact/'. Make sure to have leading and trailing slashes."
 msgstr ""
 "Eksempel: '/om/kontakt/'. Vær opmærksom på, at der skal være skråstreg både "
 "først og sidst."
 
+#: forms.py:17
 msgid ""
 "This value must contain only letters, numbers, dots, underscores, dashes, "
 "slashes or tildes."
@@ -41,48 +54,72 @@ msgstr ""
 "Denne værdi må kun indeholde bogstaver, tal, punktum, understreger, "
 "bindestreger, skråstreger eller tilder."
 
+#: forms.py:32
 msgid "URL is missing a leading slash."
 msgstr "URL mangler en skråstreg i starten."
 
+#: forms.py:39
 msgid "URL is missing a trailing slash."
 msgstr "URL mangler en afsluttende skråstreg."
 
+#: forms.py:56
 #, python-format
 msgid "Flatpage with url %(url)s already exists for site %(site)s"
 msgstr "En flad side med URL'en %(url)s eksisterer allerede for siden %(site)s"
 
+#: models.py:14
+msgid "Name"
+msgstr ""
+
+#: models.py:17
 msgid "title"
 msgstr "titel"
 
+#: models.py:18
 msgid "content"
 msgstr "indhold"
 
+#: models.py:20
 msgid "enable comments"
 msgstr "tillad kommentarer"
 
+#: models.py:22
 msgid "template name"
 msgstr "skabelonnavn"
 
+#: models.py:26
+#, fuzzy
+#| msgid ""
+#| "Example: 'flatpages/contact_page.html'. If this isn't provided, the "
+#| "system will use 'flatpages/default.html'."
 msgid ""
-"Example: 'flatpages/contact_page.html'. If this isn't provided, the system "
-"will use 'flatpages/default.html'."
+"Example: 'multilingual_flatpages/contact_page.html'. If this isn't provided, "
+"the system will use 'multilingual_flatpages/default.html'."
 msgstr ""
 "Eksempel: 'flatpages/kontaktside'. Hvis dette ikke tilbydes, bruger systemet "
 "'flatpages/default'."
 
+#: models.py:31
 msgid "registration required"
 msgstr "registrering påkrævet"
 
+#: models.py:32
 msgid "If this is checked, only logged-in users will be able to view the page."
 msgstr ""
 "Hvis denne boks er markeret, vil kun brugere der er logget ind, kunne se "
 "siden."
 
+#: models.py:35
 msgid "sites"
 msgstr "websider"
 
+#: models.py:39
 msgid "flat page"
 msgstr "flad side"
 
+#: models.py:40
 msgid "flat pages"
 msgstr "flade sider"
+
+#~ msgid "URL"
+#~ msgstr "URL"
