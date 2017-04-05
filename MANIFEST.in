@@ -3,3 +3,7 @@ include *.txt
 recursive-include multilingual_flatpages *.html
 recursive-include multilingual_flatpages *.po
 
+
+# added by check_manifest.py
+include *.py
+include .coveragerc
