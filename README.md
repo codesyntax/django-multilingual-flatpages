@@ -1,5 +1,30 @@
 # django-multilingual-flatpages
 
+.. image:: https://api.travis-ci.org/codesyntax/django-multilingual-flatpages.svg?branch=master
+    :target: https://travis-ci.org/codesyntax/django-multilingual-flatpages
+    :alt: Travis CI
+
+.. image:: https://coveralls.io/repos/github/codesyntax/django-multilingual-flatpages/badge.svg?branch=master
+    :target: https://coveralls.io/github/codesyntax/django-multilingual-flatpages?branch=master
+    :alt: Test coverage
+
+.. image:: https://landscape.io/github/codesyntax/django-multilingual-flatpages/master/landscape.svg?style=flat
+    :target: https://landscape.io/github/codesyntax/django-multilingual-flatpages
+    :alt: Code health
+
+.. image:: https://img.shields.io/badge/python-2.7-blue.svg
+    :target: https://badge.fury.io/py/django-multilingual-flatpages
+    :alt: Latest Python 2 version
+
+.. image:: https://img.shields.io/badge/python-3.5-blue.svg
+    :target: https://badge.fury.io/py/django-multilingual-flatpages
+    :alt: Latest Python 3 version
+
+.. image:: https://badge.fury.io/py/django-multilingual-flatpages.svg
+    :target: https://badge.fury.io/py/django-multilingual-flatpages
+    :alt: Latest PyPI version
+
+
 A flatpage is a simple object with a URL, title and content. Use it for one-off, special-case pages, such as “About” or “Privacy Policy” pages, that you want to store in a database but for which you don’t want to develop a custom Django application.
 
 A flatpage can use a custom template or a default, systemwide flatpage template. It can be associated with one, or multiple, sites.
