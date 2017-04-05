@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+0.8 (unreleased)
+aaaaaaaaaaaaaaaa
+
+- Nothing changed yet.
+
+
 0.7 (2017-04-05)
 aaaaaaaaaaaaaaaa
 
