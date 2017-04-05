@@ -109,3 +109,8 @@ def get_flatpages(parser, token):
         return FlatpageNode(context_name, starts_with=prefix, user=user)
     else:
         raise template.TemplateSyntaxError(syntax_message)
+
+
+@register.simple_tag
+def get_translation_url(obj, lang):
+    return obj.get_translation_url(lang)
