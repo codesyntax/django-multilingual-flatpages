@@ -1,10 +1,6 @@
 # django-multilingual-flatpages
 
-[![Build Status](https://travis-ci.org/codesyntax/django-multilingual-flatpages.svg?branch=master)](https://travis-ci.org/codesyntax/django-multilingual-flatpages)
-
-[![Coverage Status](https://coveralls.io/repos/github/codesyntax/django-multilingual-flatpages/badge.svg?branch=master)](https://coveralls.io/github/codesyntax/django-multilingual-flatpages?branch=master)
-
-[![Code Health](https://landscape.io/github/codesyntax/django-multilingual-flatpages/master/landscape.svg?style=flat)](https://landscape.io/github/codesyntax/django-multilingual-flatpages/master)
+[![Build Status](https://travis-ci.org/codesyntax/django-multilingual-flatpages.svg?branch=master)](https://travis-ci.org/codesyntax/django-multilingual-flatpages) [![Coverage Status](https://coveralls.io/repos/github/codesyntax/django-multilingual-flatpages/badge.svg?branch=master)](https://coveralls.io/github/codesyntax/django-multilingual-flatpages?branch=master) [![Code Health](https://landscape.io/github/codesyntax/django-multilingual-flatpages/master/landscape.svg?style=flat)](https://landscape.io/github/codesyntax/django-multilingual-flatpages/master)
 
 
 A flatpage is a simple object with a URL, title and content. Use it for one-off, special-case pages, such as “About” or “Privacy Policy” pages, that you want to store in a database but for which you don’t want to develop a custom Django application.
