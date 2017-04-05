@@ -1,5 +1,7 @@
-import json
+from django.contrib.sites.models import Site
 from django.test import TestCase
+from django.utils.translation import activate
+
 try:
     from django.core.urlresolvers import reverse
 except ImportError:  # django < 1.10
@@ -21,13 +23,15 @@ class BasicTest(TestCase):
             'johnpassword')
         self.user.save()
         self.flatpage = FlatPage.objects.language('en').create(
-            slug='en-slug',
+            slug='/en-slug/',
             title='EN Title',
             content='EN Content',
         )
+        self.flatpage.sites.add(Site.objects.get(id='1'))
         self.flatpage.save()
 
     def test_flatpage_view(self):
+        activate('en')
         c = Client()
         url = reverse('multilingual_flatpages', args=[self.flatpage.slug])
         response = c.get(url)
