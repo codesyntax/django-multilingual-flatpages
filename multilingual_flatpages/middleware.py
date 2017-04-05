@@ -1,10 +1,16 @@
 from django.conf import settings
 from django.http import Http404
-from django.utils.deprecation import MiddlewareMixin
 from multilingual_flatpages.views import flatpage
 
+try:
+    from django.utils.deprecation import MiddlewareMixin
+    object = MiddlewareMixin
+except ImportError:
+    pass
 
-class FlatpageFallbackMiddleware(MiddlewareMixin):
+
+class FlatpageFallbackMiddleware(object):
+
     def process_response(self, request, response):
         if response.status_code != 404:
             return response  # No need to check for a flatpage for non-404 responses.
