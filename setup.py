@@ -30,9 +30,5 @@ setup(name='multilingual_flatpages',
       packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
       include_package_data=True,
       zip_safe=False,
-      install_requires=[
-          'Django >= 1.9',
-          'django-hvad >= 1.6.0',
-          'django-tinymce>=2.6.0',
-      ],
+      install_requires=get_requirements('requirements.txt'),
 )
