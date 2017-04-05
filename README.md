@@ -28,7 +28,26 @@ To install the multilingual flatpages app, follow these steps:
 
 5. Add **multilingual_flatpages.middleware.FlatpageFallbackMiddleware'** in your **MIDDLEWARES** list.
 
-6. Add an entry in your URLconf. For example:
+6. Add a **TINYMCE_DEFAULT_CONFIG** config option in your settings, for example:
+
+    ```python
+TINYMCE_DEFAULT_CONFIG = {
+    'language': 'en',
+    'theme': 'modern',
+    'height': 600,
+    'plugins': [
+        'advlist autolink lists link image charmap print preview anchor',
+        'searchreplace visualblocks code fullscreen',
+        'insertdatetime media table contextmenu paste',
+    ],
+    'toolbar': 'styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media | code preview',
+    'menubar': False,
+    'media_alt_source': False,
+    'media_poster': False,
+    'media_dimensions': False,
+}```
+
+7. Add an entry in your URLconf. For example:
 
  ```python
 from multilingual_flatpages import views as multilingual_flatpages_views
@@ -38,7 +57,7 @@ urlpatterns = [
 ]
 ```
 
-7. Run the command **manage.py migrate**.
+8. Run the command **manage.py migrate**.
 
 
 ## Getting a URL of FlatPage object in your templates
