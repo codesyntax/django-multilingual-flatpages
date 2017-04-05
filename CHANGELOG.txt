@@ -4,7 +4,9 @@ All notable changes to this project will be documented in this file.
 0.7 (unreleased)
 aaaaaaaaaaaaaaaa
 
-- Nothing changed yet.
+- Basic test setup [erral]
+
+- Add a template tag to get translated flatpages [erral]
 
 
 0.6 (2017-01-20)
