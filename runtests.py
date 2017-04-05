@@ -18,6 +18,10 @@ if django.VERSION < (1, 10):
             }
         },
         USE_TZ=True,
+        LANGUAGES=(
+            ('es', 'Spanish'),
+            ('en', 'English'),
+        ),
         ROOT_URLCONF='{0}.urls'.format(APP_NAME),
         SITE_ID=1,
         INSTALLED_APPS=(
@@ -71,6 +75,10 @@ else:
             }
         },
         USE_TZ=True,
+        LANGUAGES=(
+            ('es', 'Spanish'),
+            ('en', 'English'),
+        ),
         ROOT_URLCONF='{0}.urls'.format(APP_NAME),
         SITE_ID=1,
         INSTALLED_APPS=(
@@ -117,7 +125,7 @@ else:
             'django.middleware.clickjacking.XFrameOptionsMiddleware',
             'multilingual_flatpages.middleware.FlatpageFallbackMiddleware',
         ],
-        TINYMCE_DEFAULT_CONFIG = {
+        TINYMCE_DEFAULT_CONFIG={
             'language': 'en',
             'theme': 'modern',
             'height': 600,
