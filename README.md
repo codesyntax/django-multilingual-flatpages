@@ -65,3 +65,17 @@ You can also use the *get_flatpages* template tag to get all the FlatPages:
     {% endfor %}
 </ul>
 ```
+
+## Getting the URL of the translation of a FlatPage in your template
+
+This is useful if you want to provide a language change link:
+
+```html
+{% load flatpages %}
+{% get_flatpages as flatpages %}
+<ul>
+    {% for page in flatpages %}
+        <li><a href="{% get_translation_url page 'es'%}">{{ page.title }}</a></li>
+    {% endfor %}
+</ul>
+```
