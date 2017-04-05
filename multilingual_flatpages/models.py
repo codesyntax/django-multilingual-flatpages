@@ -1,12 +1,13 @@
 from __future__ import unicode_literals
 
 from django.contrib.sites.models import Site
-from django.db import models
 from django.core.urlresolvers import reverse
+from django.db import models
 from django.utils.encoding import iri_to_uri, python_2_unicode_compatible
+from django.utils.translation import activate
 from django.utils.translation import ugettext_lazy as _
-from hvad.models import TranslatableModel, TranslatedFields
 from hvad.manager import TranslationManager
+from hvad.models import TranslatableModel, TranslatedFields
 
 
 @python_2_unicode_compatible
@@ -50,3 +51,8 @@ class FlatPage(TranslatableModel):
         else:
             slug = self.slug
         return reverse('multilingual_flatpages', args=[slug])
+
+    def get_translation_url(self, lang):
+        activate(lang)
+        translation = FlatPage.objects.language(lang).get(id=self.id)
+        return translation.get_absolute_url()
