@@ -31,6 +31,7 @@ if django.VERSION < (1, 10):
             'django.contrib.admin',
             'django.contrib.sites',
             'hvad',
+            'tinymce',
             APP_NAME,
         ),
         TEMPLATE_CONTEXT_PROCESSORS=(
@@ -88,6 +89,7 @@ else:
             'django.contrib.admin',
             'django.contrib.sites',
             'hvad',
+            'tinymce',
             APP_NAME,
         ),
         TEMPLATES=[

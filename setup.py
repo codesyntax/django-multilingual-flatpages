@@ -33,5 +33,6 @@ setup(name='multilingual_flatpages',
       install_requires=[
           'Django >= 1.9',
           'django-hvad >= 1.6.0',
+          'django-tinymce>=2.6.0',
       ],
 )
