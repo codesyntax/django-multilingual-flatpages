@@ -1,7 +1,7 @@
 from django.conf import settings
-from multilingual_flatpages.views import flatpage
 from django.http import Http404
 from django.utils.deprecation import MiddlewareMixin
+from multilingual_flatpages.views import flatpage
 
 
 class FlatpageFallbackMiddleware(MiddlewareMixin):

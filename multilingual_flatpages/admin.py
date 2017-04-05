@@ -1,8 +1,8 @@
 from django.contrib import admin
-from multilingual_flatpages.forms import FlatpageForm
-from multilingual_flatpages.models import FlatPage
 from django.utils.translation import ugettext_lazy as _
 from hvad.admin import TranslatableAdmin
+from multilingual_flatpages.forms import FlatpageForm
+from multilingual_flatpages.models import FlatPage
 
 
 @admin.register(FlatPage)

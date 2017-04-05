@@ -1,16 +1,12 @@
 from django.conf import settings
-from multilingual_flatpages.models import FlatPage
 from django.contrib.sites.shortcuts import get_current_site
-from django.utils.translation import get_language
 from django.http import Http404, HttpResponse, HttpResponsePermanentRedirect
 from django.template import loader
 from django.utils.safestring import mark_safe
+from django.utils.translation import get_language
 from django.views.decorators.csrf import csrf_protect
-from django.utils.translation import (
-    LANGUAGE_SESSION_KEY,
-    activate
-)
-from django.http import HttpResponseRedirect
+from multilingual_flatpages.models import FlatPage
+
 
 DEFAULT_TEMPLATE = 'multilingual_flatpages/default.html'
 

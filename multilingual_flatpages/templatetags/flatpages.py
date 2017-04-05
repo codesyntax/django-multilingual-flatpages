@@ -1,8 +1,8 @@
 from django import template
-from django.utils.translation import get_language
 from django.conf import settings
-from multilingual_flatpages.models import FlatPage
 from django.contrib.sites.shortcuts import get_current_site
+from django.utils.translation import get_language
+from multilingual_flatpages.models import FlatPage
 
 register = template.Library()
 

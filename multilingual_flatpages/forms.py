@@ -1,8 +1,8 @@
 from django import forms
 from django.conf import settings
-from multilingual_flatpages.models import FlatPage
-from hvad.forms import TranslatableModelForm
 from django.utils.translation import ugettext, ugettext_lazy as _
+from hvad.forms import TranslatableModelForm
+from multilingual_flatpages.models import FlatPage
 from tinymce.widgets import TinyMCE
 
 
