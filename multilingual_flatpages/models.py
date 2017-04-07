@@ -4,6 +4,7 @@ from django.core.urlresolvers import reverse
 from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
 from django.utils.translation import activate
+from django.utils.translation import get_language
 from django.utils.translation import ugettext_lazy as _
 from hvad.models import TranslatableModel, TranslatedFields
 
@@ -51,6 +52,9 @@ class FlatPage(TranslatableModel):
         return reverse('multilingual_flatpages', args=[slug])
 
     def get_translation_url(self, lang):
+        old_lang = get_language()
         activate(lang)
         translation = FlatPage.objects.language(lang).get(id=self.id)
-        return translation.get_absolute_url()
+        url = translation.get_absolute_url()
+        activate(old_lang)
+        return url
