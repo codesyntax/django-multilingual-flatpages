@@ -4,7 +4,12 @@ All notable changes to this project will be documented in this file.
 0.8 (unreleased)
 aaaaaaaaaaaaaaaa
 
-- Nothing changed yet.
+- fix translation url [Mikel Larreategi <mlarreategi@codesyntax.com>]
+
+-  [Mikel Larreategi <mlarreategi@codesyntax.com>]
+
+- [ci skip] [Mikel Larreategi <mlarreategi@codesyntax.com>]
+
 
 
 0.7 (2017-04-05)
