@@ -1,7 +1,7 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
-0.8 (unreleased)
+0.8 (2017-04-07)
 aaaaaaaaaaaaaaaa
 
 - fix translation url [Mikel Larreategi <mlarreategi@codesyntax.com>]
