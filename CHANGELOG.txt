@@ -1,10 +1,11 @@
-# Change Log
-All notable changes to this project will be documented in this file.
+CHANGELOG
+=========
+
 
 0.8.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix install_requires [erral]
 
 
 0.8.1 (2017-11-29)
