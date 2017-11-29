@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 
-0.8.2 (unreleased)
+0.8.2 (2017-11-29)
 ------------------
 
 - Fix install_requires [erral]
