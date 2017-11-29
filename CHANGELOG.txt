@@ -4,7 +4,9 @@ All notable changes to this project will be documented in this file.
 0.9 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Convert README to RST [erral]
+
+- Fix requirements.txt [erral]
 
 
 0.8 (2017-04-07)
@@ -92,7 +94,6 @@ All notable changes to this project will be documented in this file.
 ----------------
 
 - Preparing release 0.1 [Urtzi Odriozola <uodriozola@codesyntax.com>]
-
 
 
 0.1 (2016-11-29)
