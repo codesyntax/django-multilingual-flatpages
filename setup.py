@@ -6,14 +6,13 @@ from setuptools import setup, find_packages
 from pip.req import parse_requirements
 
 def get_requirements(source):
-
     try:
         install_reqs = parse_requirements(source, session=uuid.uuid1())
     except TypeError:
         # Older version of pip.
         install_reqs = parse_requirements(source)
-    required = set([str(ir.req) for ir in install_reqs])
-    return required
+    required = sorted(set([str(ir.req) for ir in install_reqs]))
+    return list(required)
 
 version = '0.8.2.dev0'
 
