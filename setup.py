@@ -17,7 +17,7 @@ def get_requirements(source):
     required = sorted(set([str(ir.req) for ir in install_reqs]))
     return list(required)
 
-version = '0.8.3'
+version = '0.8.4.dev0'
 
 setup(name='multilingual_flatpages',
       version=version,
