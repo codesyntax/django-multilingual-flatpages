@@ -14,7 +14,10 @@ def get_requirements(source):
     except TypeError:
         # Older version of pip.
         install_reqs = parse_requirements(source)
-    required = sorted(set([str(ir.req) for ir in install_reqs]))
+    try:
+        required = [str(ir.req) for ir in install_reqs]
+    except:
+        required = [str(ir.requirement) for ir in install_reqs]
     return list(required)
 
 version = '0.8.4.dev0'
