@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 
-0.8.4 (unreleased)
+0.8.4 (2020-06-29)
 ------------------
 
 - setup fixed [Zaloa Etxaniz <zetxaniz@codesyntax.com>]

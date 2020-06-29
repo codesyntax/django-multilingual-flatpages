@@ -20,7 +20,7 @@ def get_requirements(source):
         required = [str(ir.requirement) for ir in install_reqs]
     return list(required)
 
-version = '0.8.4.dev0'
+version = '0.8.4'
 
 setup(name='multilingual_flatpages',
       version=version,
