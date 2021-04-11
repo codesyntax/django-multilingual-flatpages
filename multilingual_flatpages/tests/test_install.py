@@ -4,7 +4,7 @@ from django.utils.translation import activate
 
 try:
     from django.core.urlresolvers import reverse
-except ImportError:  # django < 1.10
+except ImportError:  # django > 2.0
     from django.urls import reverse
 from django.test import Client
 from multilingual_flatpages.models import FlatPage
