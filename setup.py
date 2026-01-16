@@ -3,7 +3,7 @@
 
 from setuptools import setup, find_packages
 
-version = '1.0.1.dev0'
+version = '1.0.1'
 
 setup(name='multilingual_flatpages',
       version=version,

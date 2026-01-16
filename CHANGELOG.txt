@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 
-1.0.1 (unreleased)
+1.0.1 (2026-01-16)
 ------------------
 
 - fix: correct translation.py file [Peio <pmena@codesyntax.com>]
