@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 
-0.8.4 (unreleased)
+1.0.0 (2026-01-16)
 ------------------
 
 - Change code for django 5.2 and python 3.11 compatibility.
