@@ -5,7 +5,12 @@ CHANGELOG
 1.0.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- fix: correct translation.py file [Peio <pmena@codesyntax.com>]
+
+-  [Peio <pmena@codesyntax.com>]
+
+- [ci skip] [Peio <pmena@codesyntax.com>]
+
 
 
 1.0.0 (2026-01-16)
