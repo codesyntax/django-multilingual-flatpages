@@ -1,55 +1,42 @@
 from django.conf import settings
 from django.contrib.sites.shortcuts import get_current_site
 from django.http import Http404, HttpResponse, HttpResponsePermanentRedirect
+from django.shortcuts import get_object_or_404
 from django.template import loader
 from django.utils.safestring import mark_safe
-from django.utils.translation import get_language
 from django.views.decorators.csrf import csrf_protect
 from multilingual_flatpages.models import FlatPage
 
 
 DEFAULT_TEMPLATE = 'multilingual_flatpages/default.html'
 
-# This view is called from FlatpageFallbackMiddleware.process_response
-# when a 404 is raised, which often means CsrfViewMiddleware.process_view
-# has not been called even if CsrfViewMiddleware is installed. So we need
-# to use @csrf_protect, in case the template needs {% csrf_token %}.
-# However, we can't just wrap this view; if no matching flatpage exists,
-# or a redirect is required for authentication, the 404 needs to be returned
-# without any CSRF checks. Therefore, we only
-# CSRF protect the internal implementation.
-
-
+@csrf_protect
 def flatpage(request, flatpage_slug):
     """
     Public interface to the flat page view.
-
-    Models: `flatpages.flatpages`
-    Templates: Uses the template defined by the ``template_name`` field,
-        or :template:`flatpages/default.html` if template_name is not defined.
-    Context:
-        flatpage
-            `flatpages.flatpages` object
     """
     if not flatpage_slug.startswith('/'):
         flatpage_slug = '/' + flatpage_slug
+
     site_id = get_current_site(request).id
+
     try:
-        f = FlatPage.objects.language(get_language()).get(slug=flatpage_slug, sites=site_id)
-    except:
-        if not flatpage_slug.endswith('/') and settings.APPEND_SLASH:
-            flatpage_slug += '/'
+        f = get_object_or_404(FlatPage, slug=flatpage_slug, sites=site_id)
+    except Http404:
+        if settings.APPEND_SLASH and not request.path.endswith('/'):
+            # Try appending a slash if it's not there.
+            slashed_slug = flatpage_slug + '/'
             try:
-                f = FlatPage.objects.language(get_language()).get(slug=flatpage_slug, sites=site_id)
-            except:
-                raise Http404
-            return HttpResponsePermanentRedirect('%s/' % request.path)
+                f = get_object_or_404(FlatPage, slug=slashed_slug, sites=site_id)
+                return HttpResponsePermanentRedirect(request.path + '/')
+            except Http404:
+                raise
         else:
-            raise Http404
+            raise
+
     return render_flatpage(request, f)
 
 
-@csrf_protect
 def render_flatpage(request, f):
     """
     Internal interface to the flat page view.
@@ -70,5 +57,5 @@ def render_flatpage(request, f):
     f.title = mark_safe(f.title)
     f.content = mark_safe(f.content)
 
-    response = HttpResponse(template.render({'obj': f}, request))
+    response = HttpResponse(template.render({'flatpage': f}, request))
     return response

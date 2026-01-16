@@ -36,7 +36,7 @@ To install the multilingual flatpages app, follow these steps:
 
 3. Also make sure you’ve correctly set **SITE_ID** to the ID of the site the settings file represents. This will usually be **1** (i.e. **SITE_ID = 1**, but if you’re using the sites framework to manage multiple sites, it could be the ID of a different site.
 
-4. Add **'multilingual_flatpages'** and **'hvad'** to your **INSTALLED_APPS** setting.
+4. Add **'multilingual_flatpages'** and **'parler'** to your **INSTALLED_APPS** setting.
 
 5. Add **multilingual_flatpages.middleware.FlatpageFallbackMiddleware'** in your **MIDDLEWARES** list.
 

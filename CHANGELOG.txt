@@ -5,7 +5,10 @@ CHANGELOG
 0.8.4 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Change code for django 5.2 and python 3.11 compatibility.
+
+- Replace `hvad` with `django-modeltranslations` for translations to support modern Django versions and Python 3.11.
+	- Update models, forms and admin to use `django-modelstranlsations` structure.
 
 
 0.8.3 (2018-06-07)

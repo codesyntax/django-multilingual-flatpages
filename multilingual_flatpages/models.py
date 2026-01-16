@@ -1,22 +1,17 @@
 from __future__ import unicode_literals
 from django.contrib.sites.models import Site
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.db import models
-from django.utils.encoding import python_2_unicode_compatible
 from django.utils.translation import activate
 from django.utils.translation import get_language
-from django.utils.translation import ugettext_lazy as _
-from hvad.models import TranslatableModel, TranslatedFields
+from django.utils.translation import gettext_lazy as _
 
 
-@python_2_unicode_compatible
-class FlatPage(TranslatableModel):
+class FlatPage(models.Model):
     name = models.CharField(_('Name'), max_length=100)
-    translations = TranslatedFields(
-        slug=models.CharField(_('slug'), max_length=100, db_index=True),
-        title=models.CharField(_('title'), max_length=200),
-        content=models.TextField(_('content'), blank=True),
-    )
+    slug = models.CharField(_('slug'), max_length=100, db_index=True)
+    title = models.CharField(_('title'), max_length=200)
+    content = models.TextField(_('content'), blank=True)
     enable_comments = models.BooleanField(_('enable comments'), default=False)
     template_name = models.CharField(
         _('template name'),
@@ -50,11 +45,3 @@ class FlatPage(TranslatableModel):
         else:
             slug = self.slug
         return reverse('multilingual_flatpages', args=[slug])
-
-    def get_translation_url(self, lang):
-        old_lang = get_language()
-        activate(lang)
-        translation = FlatPage.objects.language(lang).get(id=self.id)
-        url = translation.get_absolute_url()
-        activate(old_lang)
-        return url

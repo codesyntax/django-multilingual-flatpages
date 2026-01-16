@@ -1,1 +1,3 @@
 *.pyc
+multilingual_flatpages.egg-info/
+build/

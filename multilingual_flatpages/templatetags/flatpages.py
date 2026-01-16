@@ -24,8 +24,7 @@ class FlatpageNode(template.Node):
             site_pk = get_current_site(context['request']).pk
         else:
             site_pk = settings.SITE_ID
-        language = get_language()
-        flatpages = FlatPage.objects.language(language).filter(sites__id=site_pk)
+        flatpages = FlatPage.objects.filter(sites__id=site_pk)
         # If a prefix was specified, add a filter
         if self.starts_with:
             flatpages = flatpages.filter(
@@ -111,6 +110,16 @@ def get_flatpages(parser, token):
         raise template.TemplateSyntaxError(syntax_message)
 
 
-@register.simple_tag
-def get_translation_url(obj, lang):
-    return obj.get_translation_url(lang)
+@register.simple_tag(takes_context=True)
+def get_translation_url(context, obj, lang):
+    """
+    Get the translated URL for an object.
+    """
+    if 'request' in context:
+        request = context['request']
+        # The new URL is the same as the current URL, but with a different
+        # language code in the path.
+        url_parts = request.path.split('/')
+        url_parts[1] = lang
+        return '/'.join(url_parts)
+    return ''

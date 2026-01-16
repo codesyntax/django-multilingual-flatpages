@@ -3,7 +3,7 @@ from django.test import TestCase
 from django.utils.translation import activate
 
 try:
-    from django.core.urlresolvers import reverse
+    from django.urls import reverse
 except ImportError:  # django < 1.10
     from django.urls import reverse
 from django.test import Client
@@ -22,7 +22,9 @@ class BasicTest(TestCase):
             'lennon@thebeatles.com',
             'johnpassword')
         self.user.save()
-        self.flatpage = FlatPage.objects.language('en').create(
+        activate('en')
+        self.flatpage = FlatPage.objects.create(
+            name='Test Page',
             slug='/en-slug/',
             title='EN Title',
             content='EN Content',

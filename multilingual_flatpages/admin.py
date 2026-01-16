@@ -1,32 +1,36 @@
 from django.contrib import admin
-from django.utils.translation import ugettext_lazy as _
-from hvad.admin import TranslatableAdmin
-from multilingual_flatpages.forms import FlatpageForm
+from django.db import models
+from django.utils.translation import gettext_lazy as _
+from modeltranslation.admin import TabbedTranslationAdmin
 from multilingual_flatpages.models import FlatPage
+from tinymce.widgets import TinyMCE
 
 
 @admin.register(FlatPage)
-class MultiFlatPageAdmin(TranslatableAdmin):
+class MultiFlatPageAdmin(TabbedTranslationAdmin):
+    group_fieldsets = True
 
-    def get_title(self, obj):
-        return obj.safe_translation_getter('title')
-    get_title.short_description = _('Title')
-
-    def get_slug(self, obj):
-        return obj.safe_translation_getter('slug')
-    get_slug.short_description = _('slug')
-
-    form = FlatpageForm
-    use_fieldsets = (
-        (None, {'fields': ('name', 'slug', 'title', 'content', 'sites')}),
+    fieldsets = (
+        (None, {'fields': ('name', 'title', 'slug', 'content', 'sites')}),
         (_('Advanced options'), {
             'classes': ('collapse',),
             'fields': ('registration_required', 'template_name'),
         }),
     )
-    list_display = ('name', 'get_slug', 'get_title', 'all_translations')
-    list_filter = ('sites', 'registration_required')
-    # search_fields = ('url', 'title')
 
-    def get_fieldsets(self, request, obj=None):
-        return self.use_fieldsets
+    formfield_overrides = {
+        models.TextField: {'widget': TinyMCE},
+    }
+
+    list_display = ('name', 'slug', 'title')
+    list_filter = ('sites', 'registration_required')
+
+    class Media:
+        js = (
+            "extra/js/jquery-ui.min.js",
+            "modeltranslation/js/force_jquery.js",
+            "modeltranslation/js/tabbed_translation_fields.js",
+        )
+        css = {
+            "screen": ("modeltranslation/css/tabbed_translation_fields.css",),
+        }
