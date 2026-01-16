@@ -1,24 +1,7 @@
 # -*- coding: utf-8 -*-
 # /usr/bin/env python
 
-import uuid
 from setuptools import setup, find_packages
-try: # for pip >= 10
-    from pip._internal.req import parse_requirements
-except ImportError: # for pip <= 9.0.3
-    from pip.req import parse_requirements
-
-def get_requirements(source):
-    try:
-        install_reqs = parse_requirements(source, session=uuid.uuid1())
-    except TypeError:
-        # Older version of pip.
-        install_reqs = parse_requirements(source)
-    try:
-        required = [str(ir.req) for ir in install_reqs]
-    except:
-        required = [str(ir.requirement) for ir in install_reqs]
-    return list(required)
 
 version = '1.0.0'
 
@@ -35,5 +18,9 @@ setup(name='multilingual_flatpages',
       packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
       include_package_data=True,
       zip_safe=False,
-      install_requires=get_requirements('requirements.txt'),
+      install_requires=[
+        "Django>=5.2",
+        "django-modeltranslation>=0.19.19",
+        "django-tinymce>=2.6.0",
+      ],
 )
